@@ -61,7 +61,7 @@ body {
   padding: 0;
   margin: 15px 0 0;
 }
-.article .date {
+.article .data {
   margin: 0;
   font-size: 14px;
 }
@@ -86,12 +86,7 @@ body {
 }
 .article div.content-expanded {
   overflow: auto;
-  height: 57px;
-}
-@media (max-width: 750px) {
-  .article div.content-expanded {
-    height: 73px;
-  }
+  height: 300px;
 }
 .article-open {
   height: 400px;
@@ -114,7 +109,7 @@ body {
   border-left: none;
   border-bottom: none;
   z-index: 2;
-  /* This set the layer level of the element, it has precendence over initial level of 1*/
+  /* z index to have proper heirarchy of items shown*/
 }
 .menu ul li {
   list-style-type: none;

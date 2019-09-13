@@ -117,6 +117,7 @@ const data = [
 
 //fucntion creation
 function articleFactory(articleData) {
+  // Create Elements
   const article = document.createElement('div');
   const title = document.createElement('h2');
   const date = document.createElement('p');
@@ -127,52 +128,48 @@ function articleFactory(articleData) {
   const source = document.createElement('p');
   const button = document.createElement('span');
 
-  // structure
+  // Create Structure
   article.appendChild(title);
   article.appendChild(date);
   article.appendChild(content);
-  article.appendChild(paragraph1);
-  article.appendChild(paragraph2);
-  article.appendChild(paragraph3);
-  article.appendChild(source);
+  content.appendChild(paragraph1);
+  content.appendChild(paragraph2);
+  content.appendChild(paragraph3);
+  content.appendChild(source);
   article.appendChild(button);
 
-//setting contents
-
+  // Set content
   title.textContent = articleData.title;
   date.textContent = articleData.date;
   paragraph1.textContent = articleData.firstParagraph;
   paragraph2.textContent = articleData.secondParagraph;
   paragraph3.textContent = articleData.thirdParagraph;
   if (articleData.sourceLink) {
-    source.innerHTML = `Source: <a href="${articleData.sourceLink}">${articleData.sourceTitle ? articleData.soureTitle : articleData.sourceLink}</a>`;
-
+    source.innerHTML = `Source: <a href="${articleData.sourceLink}">${articleData.sourceTitle ? articleData.sourceTitle : articleData.sourceLink}</a>`;
   }
   button.textContent = '\u25bc';
 
-  //adding styles
+  // Apply styles
   article.classList.add('article');
   date.classList.add('date');
   content.classList.add('content-hidden');
   button.classList.add('expandButton');
 
-  //adding event listeners
+  // Add Event Listener(s)
   button.addEventListener('click', (e) => {
-    console.log(`${articleData.title} button was clicked.`);
-    if (article.classList.contains('article-open')) {
+    console.log(`${articleData.title} button was clicked!`);
+    if(article.classList.contains('article-open')) {
       article.classList.remove('article-open');
       content.classList.replace('content-expanded', 'content-hidden');
-      button.textContent = '\u25b2';
-    }else {
+      button.textContent = '\u25bc';
+    } else {
       article.classList.add('article-open');
       content.classList.replace('content-hidden', 'content-expanded');
       button.textContent = '\u25b2';
     }
   });
 
-  
   return article;
-  
 }
 
 const articles = document.querySelector('div.articles');

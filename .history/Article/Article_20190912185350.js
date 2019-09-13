@@ -115,11 +115,11 @@ const data = [
 //code starts here 
 
 
-//fucntion creation
+//function creation
 function articleFactory(articleData) {
   const article = document.createElement('div');
   const title = document.createElement('h2');
-  const date = document.createElement('p');
+  const data = document.createElement('p');
   const content = document.createElement('div');
   const paragraph1 = document.createElement('p');
   const paragraph2 = document.createElement('p');
@@ -129,7 +129,7 @@ function articleFactory(articleData) {
 
   // structure
   article.appendChild(title);
-  article.appendChild(date);
+  article.appendChild(data);
   article.appendChild(content);
   article.appendChild(paragraph1);
   article.appendChild(paragraph2);
@@ -140,7 +140,7 @@ function articleFactory(articleData) {
 //setting contents
 
   title.textContent = articleData.title;
-  date.textContent = articleData.date;
+  date.textContent = articleData.data;
   paragraph1.textContent = articleData.firstParagraph;
   paragraph2.textContent = articleData.secondParagraph;
   paragraph3.textContent = articleData.thirdParagraph;
@@ -148,11 +148,11 @@ function articleFactory(articleData) {
     source.innerHTML = `Source: <a href="${articleData.sourceLink}">${articleData.sourceTitle ? articleData.soureTitle : articleData.sourceLink}</a>`;
 
   }
-  button.textContent = '\u25bc';
+  button.textContent = '/u25bc';
 
   //adding styles
   article.classList.add('article');
-  date.classList.add('date');
+  date.classList.add('data');
   content.classList.add('content-hidden');
   button.classList.add('expandButton');
 
@@ -162,11 +162,7 @@ function articleFactory(articleData) {
     if (article.classList.contains('article-open')) {
       article.classList.remove('article-open');
       content.classList.replace('content-expanded', 'content-hidden');
-      button.textContent = '\u25b2';
-    }else {
-      article.classList.add('article-open');
-      content.classList.replace('content-hidden', 'content-expanded');
-      button.textContent = '\u25b2';
+      button.textContent = '/u25b2';
     }
   });
 
