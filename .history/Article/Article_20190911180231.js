@@ -85,22 +85,6 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  },
-  {
-    title: 'GoT Ending Should Have Been Better',
-    date: 'September 14th, 2019',
-    firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
-          hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
-          Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
-
-    secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
-          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
-          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
-          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
-
-    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
-          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
-          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
 
@@ -130,69 +114,14 @@ const data = [
 */
 //code starts here 
 
-
-//fucntion creation
 function articleFactory(articleData) {
   const article = document.createElement('div');
   const title = document.createElement('h2');
-  const date = document.createElement('p');
+  const data = document.createElement('p');
   const content = document.createElement('div');
   const paragraph1 = document.createElement('p');
   const paragraph2 = document.createElement('p');
   const paragraph3 = document.createElement('p');
   const source = document.createElement('p');
   const button = document.createElement('span');
-
-  // structure
-  article.appendChild(title);
-  article.appendChild(date);
-  article.appendChild(content);
-  article.appendChild(paragraph1);
-  article.appendChild(paragraph2);
-  article.appendChild(paragraph3);
-  article.appendChild(source);
-  article.appendChild(button);
-
-//setting contents
-
-  title.textContent = articleData.title;
-  date.textContent = articleData.date;
-  paragraph1.textContent = articleData.firstParagraph;
-  paragraph2.textContent = articleData.secondParagraph;
-  paragraph3.textContent = articleData.thirdParagraph;
-  if (articleData.sourceLink) {
-    source.innerHTML = `Source: <a href="${articleData.sourceLink}">${articleData.sourceTitle ? articleData.soureTitle : articleData.sourceLink}</a>`;
-
-  }
-  button.textContent = '\u25bc';
-
-  //adding styles
-  article.classList.add('article');
-  date.classList.add('date');
-  content.classList.add('content-hidden');
-  button.classList.add('expandButton');
-
-  //adding event listeners
-  button.addEventListener('click', (e) => {
-    console.log(`${articleData.title} button was clicked.`);
-    if (article.classList.contains('article-open')) {
-      article.classList.remove('article-open');
-      content.classList.replace('content-expanded', 'content-hidden');
-      button.textContent = '\u25b2';
-    }else {
-      article.classList.add('article-open');
-      content.classList.replace('content-hidden', 'content-expanded');
-      button.textContent = '\u25b2';
-    }
-  });
-
-  
-  return article;
-  
 }
-
-const articles = document.querySelector('div.articles');
-
-data.forEach(article => {
-  articles.appendChild(articleFactory(article));
-});

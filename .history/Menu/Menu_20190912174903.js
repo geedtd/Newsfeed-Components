@@ -49,9 +49,9 @@ function menuFactory() {
     ul.appendChild(li);
   });
 
-  menuDiv.classList.add('menu');
+  menu.Div.classList.add('menu');
 
-  menu.addEventListener('click', e => menuDiv.classList.toggle('menu--open'));
+  menu.addEventListener('click', e => menuDiv.classList.toggle('menu-open'));
 
   return menuDiv;
 }
